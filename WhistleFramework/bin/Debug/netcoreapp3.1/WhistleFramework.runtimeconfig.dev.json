@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "/Users/cair/.dotnet/store/|arch|/|tfm|",
-      "/Users/cair/.nuget/packages"
-    ]
-  }
-}
