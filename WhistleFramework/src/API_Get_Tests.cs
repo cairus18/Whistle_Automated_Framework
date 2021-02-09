@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
+using WhistleFramework.src.Helpers;
 
 namespace WhistleFramework
 {
@@ -11,63 +9,55 @@ namespace WhistleFramework
     {
         RestClient client;
         RestRequest request;
+        APIHelper apiHelp;
 
         [SetUp]
         public void Settup()
         {
+            apiHelp = new APIHelper();
             request = new RestRequest(Method.GET);
-            request.AddHeader("cache-control", "no-cache");
             request.AddHeader("Host", "sdet-interview-api.herokuapp.com");
-            request.AddHeader("Accept", "*/*");
             request.AddHeader("Content-Type", "application/json");
         }
 
-        [Test]
-        public void Get_All_Devices_States()
+        [TestCase("/device_state")]
+        public void Get_All_Devices_States(string endPoint)
         {
-            //Set Up Phase
-            var endPoint = "/device_state";
-
             //Execution Phase
             client = new RestClient("http://sdet-interview-api.herokuapp.com" + endPoint);
             IRestResponse response = client.Execute(request);
-
+            var (wasItTrue, deviceId) = apiHelp.ValidateItemsAreSortedByDateAsc(response.Content);
+            
             //Assert Phase
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(response.StatusCode.ToString(), "OK", $"Status code OK(200) was expected but <Actual Response>:{response.StatusCode} as provided");
-                Assert.IsNotEmpty(response.Content, $"Response from API was empty <Actual Response>:{response.Content}");
+                Assert.IsTrue(wasItTrue, $"Not all the items were ordered by timestamp ascending device without order:{deviceId}");
             });
         }
 
-        [Test]
-        public void Get_Device_By_Id_Returned_200()
+        [TestCase("/device_state", "/4")]
+        public void Get_Device_By_Id_Returned_200(string endPoint, string resource)
         {
-            //Set Up Phase
-            var endPoint = "/device_state";
-            var resource = "/4";
-
             //Execution Phase
             client = new RestClient("http://sdet-interview-api.herokuapp.com" + endPoint + resource);
             IRestResponse response = client.Execute(request);
+            var (wasItTrue, deviceId) = apiHelp.ValidateItemsAreSortedByDateAsc(response.Content);
 
             //Assert Phase
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(response.StatusCode.ToString(), "OK", $"Status code OK(200) was expected but <Actual Response>:{response.StatusCode} as provided");
-                Assert.IsTrue(response.Content.Contains("4"), $"Response from API was empty <Actual Response>:{response.Content}");
+                Assert.IsTrue(wasItTrue, $"Not all the items were ordered by timestamp ascending device without order:{deviceId}");
             });
         }
 
-        [Test]
-        public void Get_Device_By_Id_Returned_404()
+        [TestCase("/device_state", "/40000")]
+        public void Get_Device_By_Id_Returned_404(string endPoint, string resource)
         {
-            //Set Up Phase
-            var endPoint = "/device_state";
-            var resource = "/40000";
-            client = new RestClient("http://sdet-interview-api.herokuapp.com" + endPoint + resource);
 
             //Execution Phase
+            client = new RestClient("http://sdet-interview-api.herokuapp.com" + endPoint + resource);
             IRestResponse response = client.Execute(request);
 
             //Assert Phase

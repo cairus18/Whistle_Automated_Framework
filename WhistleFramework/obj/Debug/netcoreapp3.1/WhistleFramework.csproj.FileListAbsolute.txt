@@ -1,6 +1,3 @@
-/Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.AssemblyInfoInputs.cache
-/Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.AssemblyInfo.cs
-/Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.csproj.CoreCompileInputs.cache
 /Users/cair/Projects/WhistleFramework/WhistleFramework/bin/Debug/netcoreapp3.1/NUnit3.TestAdapter.dll
 /Users/cair/Projects/WhistleFramework/WhistleFramework/bin/Debug/netcoreapp3.1/NUnit3.TestAdapter.pdb
 /Users/cair/Projects/WhistleFramework/WhistleFramework/bin/Debug/netcoreapp3.1/nunit.engine.dll
@@ -90,6 +87,9 @@
 /Users/cair/Projects/WhistleFramework/WhistleFramework/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 /Users/cair/Projects/WhistleFramework/WhistleFramework/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 /Users/cair/Projects/WhistleFramework/WhistleFramework/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+/Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.AssemblyInfoInputs.cache
+/Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.AssemblyInfo.cs
+/Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.csproj.CoreCompileInputs.cache
 /Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.csproj.CopyComplete
 /Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.dll
 /Users/cair/Projects/WhistleFramework/WhistleFramework/obj/Debug/netcoreapp3.1/WhistleFramework.pdb
