@@ -16,7 +16,12 @@ namespace WhistleFramework.src.Helpers
         {
             var objectDeserialized = DeserializeJson(responseToDeserialize);
             DateTime startDate = DateTime.ParseExact("2020-01-01 01:00 AM", "yyyy-MM-dd HH:mm tt", null);
-
+            
+            if (objectDeserialized.Count.Equals(0))
+            {
+                return (false, "No Id's were returned");
+            }
+            
             for (int i = 0; i < objectDeserialized.Count; i++)
             {
                 if (startDate < objectDeserialized[i].timestamp)
